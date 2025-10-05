@@ -15,6 +15,8 @@ const CartModal: React.FC = () => {
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
+    const total = getCartTotal();
+    
     let message = `🎉 *New Order from ${STORE_NAME}!* 🎉\n\n`;
     message += "*Customer Details:*\n";
     message += `*Name:* ${addressInfo.name}\n`;
@@ -24,11 +26,11 @@ const CartModal: React.FC = () => {
     message += "*Order Summary:*\n";
 
     cartItems.forEach(item => {
-      message += `- ${item.name} (x${item.quantity}) - $${(parseFloat(item.price) * item.quantity).toFixed(2)}\n`;
+      message += `- ${item.name} (x${item.quantity}) - Tsh ${(item.price * item.quantity).toLocaleString('en-US')}\n`;
     });
 
     message += "\n----------\n";
-    message += `*Total: $${getCartTotal()}*\n\n`;
+    message += `*Total: Tsh ${total.toLocaleString('en-US')}*\n\n`;
     message += "Please confirm this order. Thank you!";
 
     const encodedMessage = encodeURIComponent(message);
@@ -73,7 +75,7 @@ const CartModal: React.FC = () => {
                         <img src={item.imageUrl} alt={item.name} className="w-20 h-20 rounded-lg object-cover" />
                         <div className="flex-grow">
                         <h4 className="font-semibold text-brand-text">{item.name}</h4>
-                        <p className="text-sm text-gray-500">${item.price}</p>
+                        <p className="text-sm text-gray-500">Tsh {item.price.toLocaleString('en-US')}</p>
                         <div className="flex items-center space-x-2 mt-2">
                             <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="p-1 rounded-full border hover:bg-gray-100"><MinusIcon className="w-4 h-4" /></button>
                             <span className="w-8 text-center font-medium">{item.quantity}</span>
@@ -81,7 +83,7 @@ const CartModal: React.FC = () => {
                         </div>
                         </div>
                         <div className="text-right">
-                        <p className="font-bold text-brand-text">${(parseFloat(item.price) * item.quantity).toFixed(2)}</p>
+                        <p className="font-bold text-brand-text">Tsh {(item.price * item.quantity).toLocaleString('en-US')}</p>
                         <button onClick={() => removeFromCart(item.id)} className="text-red-500 hover:text-red-700 mt-2"><TrashIcon className="w-5 h-5" /></button>
                         </div>
                     </div>
@@ -91,7 +93,7 @@ const CartModal: React.FC = () => {
                 <div className="p-4 border-t space-y-4">
                     <div className="flex justify-between font-bold text-xl">
                     <span>Subtotal</span>
-                    <span>${getCartTotal()}</span>
+                    <span>Tsh {getCartTotal().toLocaleString('en-US')}</span>
                     </div>
                     <button onClick={() => setCheckoutStep('address')} className="w-full py-3 bg-brand-primary text-white font-bold rounded-lg shadow-md hover:bg-blue-600 transition-all duration-300">
                     Proceed to Checkout

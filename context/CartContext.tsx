@@ -7,7 +7,7 @@ interface CartContextType {
   addToCart: (product: Product) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
-  getCartTotal: () => string;
+  getCartTotal: () => number;
   getCartCount: () => number;
   toggleCart: () => void;
   clearCart: () => void;
@@ -56,7 +56,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
   
   const getCartTotal = () => {
-      return cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0).toFixed(2);
+      return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 
   const getCartCount = () => {
