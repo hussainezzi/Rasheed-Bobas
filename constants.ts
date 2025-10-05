@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
     id: 16,
     name: 'Lemon Popping Boba',
     price: 18000,
-    imageUrl: 'https://res.cloudinary.com/de0cllasz/image/upload/v1759688020/banana_popping_boba_wunja8.jpg',
+    imageUrl: 'https://res.cloudinary.com/de0cllasz/image/upload/v1759677633/lemon_popping_boba_aqrkrt.jpg',
     description: 'A zesty burst of citrusy sunshine, perfect for a refreshing treat.',
     color: 'bg-yellow-300',
   },
