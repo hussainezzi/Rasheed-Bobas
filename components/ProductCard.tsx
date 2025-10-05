@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className="relative">
         <img className="w-full h-56 object-cover" src={product.imageUrl} alt={product.name} />
         <div className={`absolute top-0 right-0 m-4 px-3 py-1 text-sm font-semibold text-white ${product.color} rounded-full`}>
-          ${product.price}
+          Tsh {product.price}
         </div>
       </div>
       <div className="p-6">

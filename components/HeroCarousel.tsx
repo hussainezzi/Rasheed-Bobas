@@ -28,6 +28,20 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ images }) => {
     return () => clearInterval(timer);
   }, [nextSlide]);
 
+  const handleExploreClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const targetId = event.currentTarget.getAttribute('href')?.substring(1);
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }
+  };
+
   return (
     <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
       <div className="absolute inset-0 flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -36,7 +50,11 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ images }) => {
             <div className="w-full h-full bg-black/40 flex flex-col items-center justify-center text-center text-white p-4">
                  <h1 className="text-5xl md:text-7xl font-black mb-4 drop-shadow-lg" style={{ fontFamily: "'Inter', sans-serif" }}>POP. SIP. REPEAT.</h1>
                  <p className="text-xl md:text-2xl max-w-2xl drop-shadow-md">Discover an explosion of flavor with our premium popping boba. The perfect topping for any drink!</p>
-                 <a href="#products" className="mt-8 px-8 py-3 bg-brand-primary hover:bg-blue-600 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                 <a 
+                    href="#products"
+                    onClick={handleExploreClick}
+                    className="mt-8 px-8 py-3 bg-brand-primary hover:bg-blue-600 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+                 >
                     Explore Flavors
                 </a>
             </div>

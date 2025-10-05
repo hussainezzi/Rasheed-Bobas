@@ -1,5 +1,6 @@
 import React from 'react';
-import { BobaIcon } from './Icons';
+import { Logo } from './Logo';
+import {  STORE_NAME } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -8,8 +9,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
             <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                <BobaIcon className="w-8 h-8 text-brand-primary" />
-                <span className="text-2xl font-bold" style={{ fontFamily: "'Pacifico', cursive" }}>Rasheed Bobbas</span>
+                <Logo className="w-10 h-10" />
+                <span className="text-2xl font-bold" style={{ fontFamily: "'Pacifico', cursive" }}>{STORE_NAME}</span>
             </div>
             <p className="text-gray-400">Your daily dose of deliciousness. Premium popping boba delivered to you.</p>
           </div>

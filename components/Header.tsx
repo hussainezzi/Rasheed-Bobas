@@ -1,6 +1,8 @@
 import React from 'react';
-import { ShoppingCartIcon, BobaIcon } from './Icons';
+import { ShoppingCartIcon } from './Icons';
 import { useCart } from '../context/CartContext';
+import {  STORE_NAME } from '../constants';
+import { Logo } from './Logo';
 
 const Header: React.FC = () => {
   const { getCartCount, toggleCart } = useCart();
@@ -34,9 +36,9 @@ const Header: React.FC = () => {
     <header className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-40">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <BobaIcon className="w-10 h-10 text-brand-primary" />
+          <Logo className="w-12 h-12" />
           <span className="text-3xl font-bold text-brand-text" style={{ fontFamily: "'Pacifico', cursive" }}>
-            Rasheed Bobbas
+            {STORE_NAME}
           </span>
         </div>
         <nav className="hidden md:flex items-center space-x-8">
