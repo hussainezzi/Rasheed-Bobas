@@ -134,6 +134,14 @@ export const PRODUCTS: Product[] = [
     description: 'A zesty burst of citrusy sunshine, perfect for a refreshing treat.',
     color: 'bg-yellow-300',
   },
+  {
+    id: 17,
+    name: 'Orange Popping Boba',
+    price: 18000,
+    imageUrl: 'https://res.cloudinary.com/de0cllasz/image/upload/v1759688549/orange_popping_boba_wtgyjc.jpg',
+    description: 'A classic, juicy burst of sweet citrus orange flavor.',
+    color: 'bg-orange-500',
+  },
 ];
 
 export const CAROUSEL_IMAGES = [
